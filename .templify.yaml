@@ -1,0 +1,40 @@
+files:
+  - README.md
+  - package.json
+parameters:
+  name:
+    name: name
+    type: string
+    title: Package Name
+    description: Enter package name here
+    default: "@isdk/"
+  description:
+    name: description
+    type: string
+    title: Pacakge Description
+    description: Enter description here
+    default: ""
+  version:
+    name: version
+    type: string
+    title: Package Version
+    description: Enter version here
+    default: "0.1.0"
+  author:
+    name: author
+    type: string
+    title: Author
+    description: Enter author here
+    default: "Riceball LEE @snowyu"
+  githubRepo:
+    name: githubRepo
+    type: string
+    title: Github Repo
+    description: Enter githubRepo here
+    default: "isdk/"
+  license:
+    name: license
+    type: string
+    title: License
+    description: Enter license here
+    default: "MIT"
