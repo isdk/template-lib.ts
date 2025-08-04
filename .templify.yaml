@@ -38,3 +38,9 @@ parameters:
     title: License
     description: Enter license here
     default: "MIT"
+  packageManager:
+    name: packageManager
+    type: string
+    title: Package Manager
+    description: Enter packageManager here
+    default: "pnpm"

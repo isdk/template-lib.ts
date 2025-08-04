@@ -8,22 +8,22 @@
   },
   "devDependencies": {
     "@eslint/eslintrc": "^3.3.1",
-    "@eslint/js": "^9.23.0",
+    "@eslint/js": "^9.32.0",
     "@types/chai": "^5",
     "@types/jest": "^29.5.14",
     "@types/node": "^18",
     "eslint": "^9",
     "eslint-config-prettier": "^10",
-    "shx": "^0.3.3",
-    "terser": "^5.39.0",
-    "tsup": "^8.4.0",
-    "tsx": "^4.19.3",
-    "typedoc": "^0.28.1",
-    "typedoc-plugin-markdown": "^4.6.0",
-    "typescript": "^5.7.3",
-    "typescript-eslint": "^8.28.0",
-    "vite": "^6.2.3",
-    "vitest": "^3.0.9"
+    "shx": "^0.4.0",
+    "terser": "^5.43.1",
+    "tsup": "^8.5.0",
+    "tsx": "^4.20.3",
+    "typedoc": "^0.28.9",
+    "typedoc-plugin-markdown": "^4.8.0",
+    "typescript": "~5.7.3",
+    "typescript-eslint": "^8.38.0",
+    "vite": "^7.0.6",
+    "vitest": "^3.2.4"
   },
   "engines": {
     "node": ">=18.0.0"
@@ -47,19 +47,19 @@
   "repository": "{{githubRepo}}",
   "scripts": {
     "build-fast": "tsup",
-    "build": "pnpm run build-fast --dts-resolve --dts && pnpm run doc:md",
+    "build": "{{packageManager}} run build-fast --dts-resolve --dts && {{packageManager}} run doc:md",
     "clean": "rm -fr docs dist",
     "doc": "typedoc --plugin none --out web",
     "doc:md": "typedoc --plugin typedoc-plugin-markdown --out docs",
-    "style": "pnpm run format -c && pnpm run lint",
-    "style:fix": "pnpm run format:fix && pnpm run lint:fix",
+    "style": "{{packageManager}} run format -c && {{packageManager}} run lint",
+    "style:fix": "{{packageManager}} run format:fix && {{packageManager}} run lint:fix",
     "format": "prettier \"**/*.{ts,tsx,js,jsx,css,scss,sass,less,md}\"",
-    "format:fix": "pnpm run format --write",
+    "format:fix": "{{packageManager}} run format --write",
     "lint": "eslint .",
-    "lint:fix": "pnpm run lint --fix",
+    "lint:fix": "{{packageManager}} run lint --fix",
     "test": "vitest run",
-    "release": "pnpm run clean && pnpm run build && git add -f docs && git ci -m 'docs: update API docs' && pnpm dlx commit-and-tag-version -s",
-    "release.alpha": "pnpm run release -- --prerelease alpha"
+    "release": "{{packageManager}} run clean && {{packageManager}} run build && git add -f docs && git ci -m 'docs: update API docs' && npx commit-and-tag-version -s",
+    "release.alpha": "{{packageManager}} run release -- --prerelease alpha"
   },
   "types": "dist/index.d.ts"
 }
